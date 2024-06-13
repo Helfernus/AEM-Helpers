@@ -3,24 +3,29 @@ package com.example.aem.core.services;
 import com.day.cq.commons.Externalizer;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-@Component(service = LinkProcessor.class)
+import java.util.Set;
+
+@Component(service = LinkHandler.class)
 public class LinkHandler {
 
     @Reference
     private Externalizer externalizer;
+
+    @Reference
+    private SlingSettingsService slingSettingsService;
 
     /**
      * Processes a link to add .html extension for internal links and externalize it.
      *
      * @param resourceResolver the ResourceResolver to resolve resources
      * @param link the original link
-     * @param isPublish whether the link should be externalized for publish
      * @return the processed link
      */
-    public String processLink(ResourceResolver resourceResolver, String link, boolean isPublish) {
+    public String processLink(ResourceResolver resourceResolver, String link) {
         if (StringUtils.isBlank(link)) {
             return link;
         }
@@ -34,6 +39,9 @@ public class LinkHandler {
         if (!link.endsWith(".html")) {
             link = link + ".html";
         }
+
+        // Determine if the current run mode is publish
+        boolean isPublish = isPublishRunMode();
 
         // Externalize the link based on environment (author or publish)
         if (isPublish) {
@@ -51,5 +59,15 @@ public class LinkHandler {
      */
     private boolean isExternalLink(String link) {
         return link.startsWith("http://") || link.startsWith("https://") || link.startsWith("//");
+    }
+
+    /**
+     * Determines if the current run mode is publish.
+     *
+     * @return true if the current run mode is publish, false otherwise
+     */
+    private boolean isPublishRunMode() {
+        Set<String> runModes = slingSettingsService.getRunModes();
+        return runModes.contains("publish");
     }
 }
