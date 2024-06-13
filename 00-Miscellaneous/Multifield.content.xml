@@ -29,7 +29,10 @@
                         name="./links"
                         composite="{Boolean}true">
                         
-                        <field jcr:primaryType="nt:unstructured">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            name="./linksFieldset">
                             <items jcr:primaryType="nt:unstructured">
                                 <linkItem
                                     jcr:primaryType="nt:unstructured"
