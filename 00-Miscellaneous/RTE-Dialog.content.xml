@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    cq:dialogMode="floating"
+    title="My Component">
+
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
+        layout="fixedcolumns">
+
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                
+                <items jcr:primaryType="nt:unstructured">
+                    <richText
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                        fieldLabel="Rich Text"
+                        name="./richText">
+                        
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit jcr:primaryType="nt:unstructured" features="[bold,italic,underline]"/>
+                            <misctools jcr:primaryType="nt:unstructured" features="[sourceedit]"/>
+                            <links jcr:primaryType="nt:unstructured" features="[modifylink,unlink]"/>
+                            <subsuperscript jcr:primaryType="nt:unstructured" features="[subscript,superscript]"/>
+                            <lists jcr:primaryType="nt:unstructured" features="[unordered,ordered]"/>
+                            <paragraphformat jcr:primaryType="nt:unstructured" features="[justifyleft,justifycenter,justifyright,justifyfull]"/>
+                            <styles jcr:primaryType="nt:unstructured" features="[bold,italic,underline,code,quote]"/>
+                            <image jcr:primaryType="nt:unstructured" features="[imageProps]"/>
+                            <table jcr:primaryType="nt:unstructured" features="[inserttable,insertcolbefore,insertcolafter,insertrowbefore,insertrowafter,deletecol,deleterow,mergecells,splitcell]"/>
+                            <format jcr:primaryType="nt:unstructured" features="[removeformat]"/>
+                        </rtePlugins>
+
+                        <uiSettings jcr:primaryType="nt:unstructured">
+                            <cui jcr:primaryType="nt:unstructured">
+                                <toolbar jcr:primaryType="nt:unstructured">
+                                    <fullscreen jcr:primaryType="nt:unstructured"/>
+                                </toolbar>
+                            </cui>
+                        </uiSettings>
+                    </richText>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>
