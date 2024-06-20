@@ -1,0 +1,17 @@
+<!-- /apps/myapp/components/content/nestedmultifield/nestedmultifield.html -->
+<sly data-sly-test="${properties.nestedMultifield}">
+    <ul>
+        <sly data-sly-list.nested="${properties.nestedMultifield}">
+            <li>
+                <h3>${nested.textField}</h3>
+                <sly data-sly-test="${nested.nestedField}">
+                    <ul>
+                        <sly data-sly-list.subNested="${nested.nestedField}">
+                            <li>${subNested.subTextField}</li>
+                        </sly>
+                    </ul>
+                </sly>
+            </li>
+        </sly>
+    </ul>
+</sly>
