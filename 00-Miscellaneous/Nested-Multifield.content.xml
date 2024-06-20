@@ -18,11 +18,13 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                 fieldLabel="Nested Multifield"
+                composite="{Boolean}true"
                 name="./nestedMultifield">
                 
-                <field jcr:primaryType="nt:unstructured">
-                    <container jcr:primaryType="nt:unstructured"
-                               sling:resourceType="granite/ui/components/coral/foundation/container">
+                <field
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    name="./outerField">
                         <items jcr:primaryType="nt:unstructured">
 
                             <!-- First level of fields -->
@@ -37,11 +39,13 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                 fieldLabel="Nested Field"
+                                composite="{Boolean}true"
                                 name="./nestedField">
                                 
-                                <field jcr:primaryType="nt:unstructured">
-                                    <container jcr:primaryType="nt:unstructured"
-                                               sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <field
+                                    jcr:primaryType="nt:unstructured
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./innerField">
                                         <items jcr:primaryType="nt:unstructured">
 
                                             <!-- Second level of fields -->
@@ -54,12 +58,9 @@
                                             <!-- Additional nested fields can be added here -->
 
                                         </items>
-                                    </container>
                                 </field>
                             </nestedField>
-
                         </items>
-                    </container>
                 </field>
             </nestedMultifield>
         </items>
