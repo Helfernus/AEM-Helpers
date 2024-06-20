@@ -1,0 +1,61 @@
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    jcr:primaryType="nt:unstructured"
+    cq:dialogMode="floating"
+    cq:layout="fixedColumns">
+
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <checkbox
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                text="Show Fieldset A"
+                name="./showFieldsetA"
+                value="{Boolean}true"
+                checked="{Boolean}true">
+                <granite:data
+                    jcr:primaryType="nt:unstructured"
+                    granite:class="toggle-fieldsets"/>
+            </checkbox>
+            <fieldsetA
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                granite:class="fieldset-a">
+                <items jcr:primaryType="nt:unstructured">
+                    <textfield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Field A1"
+                        name="./fieldA1"/>
+                    <textfield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Field A2"
+                        name="./fieldA2"/>
+                </items>
+            </fieldsetA>
+            <fieldsetB
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                granite:class="fieldset-b">
+                <items jcr:primaryType="nt:unstructured">
+                    <textfield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Field B1"
+                        name="./fieldB1"/>
+                    <textfield
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Field B2"
+                        name="./fieldB2"/>
+                </items>
+            </fieldsetB>
+        </items>
+    </content>
+</jcr:root>
