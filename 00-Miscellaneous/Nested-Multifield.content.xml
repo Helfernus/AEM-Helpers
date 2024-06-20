@@ -1,0 +1,67 @@
+<!-- /apps/myapp/components/content/nestedmultifield/cq:dialog -->
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="nt:unstructured"
+    cq:dialogMode="edit"
+    jcr:title="Nested Multifield Component"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0">
+
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+            <nestedMultifield
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                fieldLabel="Nested Multifield"
+                name="./nestedMultifield">
+                
+                <field jcr:primaryType="nt:unstructured">
+                    <container jcr:primaryType="nt:unstructured"
+                               sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+
+                            <!-- First level of fields -->
+                            <textField
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Text Field"
+                                name="./textField"/>
+
+                            <!-- Nested Multifield -->
+                            <nestedField
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Nested Field"
+                                name="./nestedField">
+                                
+                                <field jcr:primaryType="nt:unstructured">
+                                    <container jcr:primaryType="nt:unstructured"
+                                               sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+
+                                            <!-- Second level of fields -->
+                                            <subTextField
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Sub Text Field"
+                                                name="./subTextField"/>
+
+                                            <!-- Additional nested fields can be added here -->
+
+                                        </items>
+                                    </container>
+                                </field>
+                            </nestedField>
+
+                        </items>
+                    </container>
+                </field>
+            </nestedMultifield>
+        </items>
+    </content>
+</jcr:root>
